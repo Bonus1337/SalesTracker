@@ -1,0 +1,214 @@
+{
+  "products": [
+    {
+      "name": "burger",
+      "unitPrice": 12.99
+    },
+    {
+      "name": "pizza",
+      "unitPrice": 23.5
+    },
+    {
+      "name": "pierogi",
+      "unitPrice": 8.99
+    },
+    {
+      "name": "kotlet",
+      "unitPrice": 9.99
+    },
+    {
+      "name": "schabowy",
+      "unitPrice": 12.99
+    },
+    {
+      "name": "zapiekanka",
+      "unitPrice": 12.99
+    },
+
+    {
+      "name": "bagietka",
+      "unitPrice": 7.99
+    },
+    {
+      "name": "ciasto",
+      "unitPrice": 9.99
+    },
+    {
+      "name": "ciastko",
+      "unitPrice": 5.99
+    },
+    {
+      "name": "ciasteczko",
+      "unitPrice": 3.99
+    }
+  ],
+  "clients": [
+    {
+      "name": "Szkoła XY",
+      "address": "ul. Szkolna 1, 00-001 Warszawa"
+    },
+
+    {
+      "name": "Firma YZ",
+      "address": "ul. Przemysłowa 5, 02-001 Kraków"
+    },
+    {
+      "name": "Urząd Miasta ZZ",
+      "address": "ul. Ratuszowa 10, 80-001 Gdańsk"
+    },
+    {
+      "name": "Firma AB",
+      "address": "ul. Pomocna 5, 02-001 Kraków"
+    },
+    {
+      "name": "Urząd Miasta CD",
+      "address": "ul. Ratuszowa 9, 80-001 Gdańsk"
+    },
+    {
+      "name": "Firma EF",
+      "address": "ul. Przeskokowa 5, 02-001 Kraków"
+    },
+    {
+      "name": "Urząd celny",
+      "address": "ul. Celna 10, 80-001 Gdańsk"
+    },
+    {
+      "name": "Uczelnia zawodowa",
+      "address": "ul. Uczelnia 5, 02-001 Kraków"
+    },
+    {
+      "name": "Kantor",
+      "address": "ul. Kantorska 10, 80-001 Katowice"
+    }
+  ],
+  "orders": [
+    {
+      "date": "2022-03-20",
+      "client": "Szkoła XY",
+      "items": [
+        {
+          "product": "burger",
+          "quantity": 10,
+          "unitPrice": 12.99
+        },
+        {
+          "product": "pizza",
+          "quantity": 5,
+          "unitPrice": 23.5
+        }
+      ]
+    },
+    {
+      "date": "2022-03-22",
+      "client": "Firma YZ",
+      "items": [
+        {
+          "product": "bagietka",
+          "quantity": 20,
+          "unitPrice": 7.99
+        },
+        {
+          "product": "pizza",
+          "quantity": 8,
+          "unitPrice": 23.5
+        }
+      ]
+    },
+    {
+      "date": "2022-03-24",
+      "client": "Urząd Miasta ZZ",
+      "items": [
+        {
+          "product": "burger",
+          "quantity": 15,
+          "unitPrice": 12.99
+        },
+        {
+          "product": "bagietka",
+          "quantity": 10,
+          "unitPrice": 7.99
+        }
+      ]
+    },
+    {
+      "date": "2022-03-26",
+      "client": "Firma AB",
+      "items": [
+        {
+          "product": "ciasto",
+          "quantity": 20,
+          "unitPrice": 9.99
+        },
+        {
+          "product": "ciastko",
+          "quantity": 8,
+          "unitPrice": 5.99
+        }
+      ]
+    },
+    {
+      "date": "2022-03-28",
+      "client": "Urząd Miasta CD",
+      "items": [
+        {
+          "product": "ciastko",
+          "quantity": 15,
+          "unitPrice": 5.99
+        },
+        {
+          "product": "ciasteczko",
+          "quantity": 10,
+          "unitPrice": 3.99
+        }
+      ]
+    },
+    {
+      "date": "2022-03-30",
+      "client": "Firma EF",
+      "items": [
+        {
+          "product": "bagietka",
+          "quantity": 20,
+          "unitPrice": 3.99
+        },
+        {
+          "product": "pizza",
+          "quantity": 8,
+          "unitPrice": 5.99
+        }
+      ]
+    },
+    {
+      "date": "2022-04-01",
+      "client": "Urząd celny",
+      "items": [
+        {
+          "product": "burger",
+          "quantity": 15,
+          "unitPrice": 5.99
+        },
+        {
+          "product": "ciasteczko",
+          "quantity": 10,
+          "unitPrice": 3.99
+        }
+      ]
+    },
+    {
+      "date": "2022-04-03",
+      "client": "Uczelnia zawodowa",
+      "items": [
+        {
+          "product": "ciasto",
+          "quantity": 20,
+          "unitPrice": 3.99
+        },
+        {
+          "product": "ciastko",
+          "quantity": 8,
+          "unitPrice": 5.99
+        }
+      ]
+    }
+  ]
+}
