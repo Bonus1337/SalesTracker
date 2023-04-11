@@ -21,6 +21,7 @@ import food1 from "../../assets/food1.jpeg";
 import food2 from "../../assets/food2.jpeg";
 import food3 from "../../assets/food3.jpeg";
 export default {
+  name: "CarouselComponent",
   data() {
     return {
       images: [ads, food1, food2, food3],

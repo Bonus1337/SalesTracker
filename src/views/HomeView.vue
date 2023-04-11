@@ -20,7 +20,34 @@ export default {
 </script>
 
 <style scoped>
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+.carousel {
+  margin: 2rem auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
 .table {
-  margin-top: 5rem;
+  margin: 5rem auto;
+  width: 80%;
+}
+.table h2 {
+  text-align: center;
+  color: #333;
+}
+.p-datatable {
+  border: none;
+}
+.p-datatable-thead > tr > th {
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  background-color: #eee;
+}
+.p-datatable-tbody > tr > td {
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
 }
 </style>
