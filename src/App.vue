@@ -1,6 +1,8 @@
 <template>
   <NavigationBar />
-  <router-view />
+  <div class="content">
+    <router-view />
+  </div>
 </template>
 
 <style>
@@ -10,6 +12,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.content {
+  margin-top: 5rem;
 }
 </style>
 <script>
