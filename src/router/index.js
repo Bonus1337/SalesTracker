@@ -14,7 +14,7 @@ const routes = [
     component: AddOrderView,
   },
   {
-    path: "/sales-report",
+    path: "/product-list",
     name: "ProductListView",
     component: ProductListView,
   },
