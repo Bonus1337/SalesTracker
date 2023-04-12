@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2>Reklama</h2>
     <CarouselComponent />
 
     <div class="table">
@@ -10,7 +11,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import CarouselComponent from "@/components/mainScreen/CarouselComponent.vue";
 import PriceProductTable from "@/components/mainScreen/PriceProductTable.vue";
 export default {

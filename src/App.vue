@@ -2,6 +2,7 @@
   <NavigationBar />
   <div class="content">
     <router-view />
+    <FooterComponent />
   </div>
 </template>
 
@@ -19,10 +20,11 @@
 </style>
 <script>
 import NavigationBar from "@/components/NavigationBar.vue";
-
+import FooterComponent from "@/components/FooterComponent.vue";
 export default {
   components: {
     NavigationBar,
+    FooterComponent,
   },
 };
 </script>
