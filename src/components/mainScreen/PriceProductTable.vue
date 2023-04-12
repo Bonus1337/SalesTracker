@@ -1,6 +1,6 @@
 <template>
   <div>
-    <DataTable :value="products" tableStyle="min-width: 20rem">
+    <DataTable :value="allProducts" tableStyle="min-width: 20rem">
       <Column field="name" sortable header="Nazwa produktu"></Column>
       <Column field="unitPrice" sortable header="Cena">
         <template #body="slotProps">
@@ -12,9 +12,10 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
+
 export default {
   name: "PriceProductTable",
   components: {
@@ -22,10 +23,13 @@ export default {
     Column,
   },
   computed: {
-    ...mapGetters(["getData"]),
-    products() {
-      return this.getData.products;
-    },
+    ...mapGetters(["allProducts"]),
+  },
+  created() {
+    this.fetchProducts();
+  },
+  methods: {
+    ...mapActions(["fetchProducts"]),
   },
 };
 </script>
