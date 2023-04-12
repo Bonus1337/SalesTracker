@@ -14,28 +14,27 @@
     {
       "name": "pierogi",
       "unitPrice": 8.99,
-      "rating": 4.0
+      "rating": 4
     },
     {
       "name": "kotlet",
       "unitPrice": 9.99,
-      "rating": 4.0
+      "rating": 4
     },
     {
       "name": "schabowy",
       "unitPrice": 12.99,
-      "rating": 5.0
+      "rating": 5
     },
     {
       "name": "zapiekanka",
       "unitPrice": 12.99,
-      "rating": 3.0
+      "rating": 3
     },
-
     {
       "name": "bagietka",
       "unitPrice": 7.99,
-      "rating": 2.0
+      "rating": 2
     },
     {
       "name": "ciasto",
@@ -45,12 +44,12 @@
     {
       "name": "ciastko",
       "unitPrice": 5.99,
-      "rating": 5.0
+      "rating": 5
     },
     {
       "name": "ciasteczko",
       "unitPrice": 3.99,
-      "rating": 5.0
+      "rating": 5
     }
   ],
   "clients": [
@@ -58,7 +57,6 @@
       "name": "Szkoła XY",
       "address": "ul. Szkolna 1, 00-001 Warszawa"
     },
-
     {
       "name": "Firma YZ",
       "address": "ul. Przemysłowa 5, 02-001 Kraków"
@@ -126,6 +124,7 @@
       ]
     },
     {
+      "id": 1,
       "date": "2022-03-24",
       "client": "Urząd Miasta ZZ",
       "items": [
@@ -142,6 +141,7 @@
       ]
     },
     {
+      "id": 2,
       "date": "2022-03-26",
       "client": "Firma AB",
       "items": [
@@ -158,6 +158,7 @@
       ]
     },
     {
+      "id": 3,
       "date": "2022-03-28",
       "client": "Urząd Miasta CD",
       "items": [
@@ -174,6 +175,7 @@
       ]
     },
     {
+      "id": 4,
       "date": "2022-03-30",
       "client": "Firma EF",
       "items": [
@@ -190,6 +192,7 @@
       ]
     },
     {
+      "id": 5,
       "date": "2022-04-01",
       "client": "Urząd celny",
       "items": [
@@ -206,6 +209,7 @@
       ]
     },
     {
+      "id": 6,
       "date": "2022-04-03",
       "client": "Uczelnia zawodowa",
       "items": [
@@ -218,6 +222,78 @@
           "product": "ciastko",
           "quantity": 8,
           "unitPrice": 5.99
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "date": "2023-04-12",
+      "client": "Urząd Miasta ZZ",
+      "items": [
+        {
+          "product": "burger",
+          "quantity": 1,
+          "unitPrice": 12.99
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "date": "2023-04-12",
+      "client": "Urząd Miasta ZZ",
+      "items": [
+        {
+          "product": "burger",
+          "quantity": 1,
+          "unitPrice": 12.99
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "date": "2023-04-12",
+      "client": "Firma YZ",
+      "items": [
+        {
+          "product": "pierogi",
+          "quantity": 12,
+          "unitPrice": 8.99
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "date": "2023-04-12",
+      "client": "Firma YZ",
+      "items": [
+        {
+          "product": "pierogi",
+          "quantity": 12,
+          "unitPrice": 8.99
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "date": "2023-04-12",
+      "client": "Uczelnia zawodowa",
+      "items": [
+        {
+          "product": "schabowy",
+          "quantity": 100,
+          "unitPrice": 12.99
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "date": "2023-04-12",
+      "client": "Uczelnia zawodowa",
+      "items": [
+        {
+          "product": "schabowy",
+          "quantity": 100,
+          "unitPrice": 12.99
         }
       ]
     }

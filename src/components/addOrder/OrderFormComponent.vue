@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="p-field p-grid">
-        <label for="products" class="p-col-12 p-md-2">Wybierz produkt</label>
+        <label for="allProducts" class="p-col-12 p-md-2">Wybierz produkt</label>
         <div class="p-col-12 p-md-10">
           <Dropdown
             id="products"
@@ -29,7 +29,7 @@
       <div class="p-field p-grid">
         <label for="quantity" class="p-col-12 p-md-2">Ilość</label>
         <div class="p-col-12 p-md-10">
-          <InputNumber id="quantity" v-model="quantity" min="1" />
+          <InputNumber id="quantity" v-model="quantity" :min="1" />
         </div>
       </div>
       <h5>Cena</h5>
@@ -44,10 +44,10 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import Dropdown from "primevue/dropdown";
 import InputNumber from "primevue/inputnumber";
-import { mapGetters, mapMutations } from "vuex";
-import ButtonComponent from "@/components/shared/ButtonComponent.vue";
+import ButtonComponent from "../shared/ButtonComponent.vue";
 
 export default {
   name: "OrderFormComponent",
@@ -56,31 +56,41 @@ export default {
       selectedCustomer: null,
       selectedProduct: null,
       quantity: 1,
+      products: [],
+      clients: [],
     };
   },
+  components: {
+    Dropdown,
+    InputNumber,
+    ButtonComponent,
+  },
   computed: {
-    ...mapGetters(["getProducts", "getClients", "getOrders"]),
-    products() {
-      return this.getProducts;
-    },
-    clients() {
-      return this.getClients;
-    },
+    ...mapGetters(["allProducts", "allClients", "allOrders"]),
     getSelectedProductPrice() {
-      if (this.selectedProduct) {
-        const selectedProduct = this.products.find(
-          (p) => p.name === this.selectedProduct.name
-        );
-        return selectedProduct.unitPrice * this.quantity;
+      if (this.selectedProduct && this.quantity) {
+        return this.selectedProduct.unitPrice * this.quantity;
+      } else {
+        return 0;
       }
-      return 0;
     },
   },
+  created() {
+    this.fetchProducts().then(() => {
+      this.products = this.allProducts;
+    });
+    this.fetchClients().then(() => {
+      this.clients = this.allClients;
+    });
+    this.fetchOrders();
+  },
   methods: {
-    ...mapMutations(["addOrder"]),
+    ...mapActions(["fetchProducts", "fetchClients", "addOrder", "fetchOrders"]),
     createOrder() {
-      if (this.selectedCustomer && this.selectedProduct && this.quantity > 0) {
+      if (this.selectedCustomer && this.selectedProduct && this.quantity) {
+        const maxId = Math.max(...this.allOrders.map((order) => order.id));
         const order = {
+          id: maxId + 1,
           date: new Date().toISOString().slice(0, 10),
           client: this.selectedCustomer.name,
           items: [
@@ -92,19 +102,10 @@ export default {
           ],
         };
         this.addOrder(order);
-        alert(
-          `Zamówienie dodane:\nKlient: ${this.selectedCustomer.name}\nProdukt: ${this.selectedProduct.name}\nIlość: ${this.quantity}\nData: ${order.date}\nCena: ${this.getSelectedProductPrice} PLN`
-        );
       } else {
         alert("Proszę wybrać klienta, produkt i ilość");
       }
     },
-  },
-
-  components: {
-    Dropdown,
-    InputNumber,
-    ButtonComponent,
   },
 };
 </script>
