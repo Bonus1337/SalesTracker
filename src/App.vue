@@ -26,5 +26,8 @@ export default {
     NavigationBar,
     FooterComponent,
   },
+  mounted() {
+    this.$store.dispatch("fetchProducts");
+  },
 };
 </script>

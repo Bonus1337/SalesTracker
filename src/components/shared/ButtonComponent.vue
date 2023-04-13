@@ -32,6 +32,5 @@ export default {
   text-align: center;
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
 }
 </style>
