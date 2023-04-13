@@ -91,210 +91,108 @@
   ],
   "orders": [
     {
-      "date": "2022-03-20",
-      "client": "Szkoła XY",
-      "items": [
-        {
-          "product": "burger",
-          "quantity": 10,
-          "unitPrice": 12.99
-        },
-        {
-          "product": "pizza",
-          "quantity": 5,
-          "unitPrice": 23.5
-        }
-      ]
-    },
-    {
-      "date": "2022-03-22",
-      "client": "Firma YZ",
-      "items": [
-        {
-          "product": "bagietka",
-          "quantity": 20,
-          "unitPrice": 7.99
-        },
-        {
-          "product": "pizza",
-          "quantity": 8,
-          "unitPrice": 23.5
-        }
-      ]
-    },
-    {
       "id": 1,
       "date": "2022-03-24",
       "client": "Urząd Miasta ZZ",
-      "items": [
-        {
-          "product": "burger",
-          "quantity": 15,
-          "unitPrice": 12.99
-        },
-        {
-          "product": "bagietka",
-          "quantity": 10,
-          "unitPrice": 7.99
-        }
-      ]
+      "product": "bagietka",
+      "quantity": 10,
+      "unitPrice": 7.99
     },
     {
       "id": 2,
       "date": "2022-03-26",
       "client": "Firma AB",
-      "items": [
-        {
-          "product": "ciasto",
-          "quantity": 20,
-          "unitPrice": 9.99
-        },
-        {
-          "product": "ciastko",
-          "quantity": 8,
-          "unitPrice": 5.99
-        }
-      ]
+      "product": "ciasto",
+      "quantity": 20,
+      "unitPrice": 9.99
     },
     {
       "id": 3,
       "date": "2022-03-28",
       "client": "Urząd Miasta CD",
-      "items": [
-        {
-          "product": "ciastko",
-          "quantity": 15,
-          "unitPrice": 5.99
-        },
-        {
-          "product": "ciasteczko",
-          "quantity": 10,
-          "unitPrice": 3.99
-        }
-      ]
+      "product": "ciasteczko",
+      "quantity": 10,
+      "unitPrice": 3.99
     },
     {
       "id": 4,
       "date": "2022-03-30",
       "client": "Firma EF",
-      "items": [
-        {
-          "product": "bagietka",
-          "quantity": 20,
-          "unitPrice": 7.99
-        },
-        {
-          "product": "pizza",
-          "quantity": 8,
-          "unitPrice": 23.5
-        }
-      ]
+      "product": "pizza",
+      "quantity": 8,
+      "unitPrice": 23.5
     },
     {
       "id": 5,
       "date": "2022-04-01",
       "client": "Urząd celny",
-      "items": [
-        {
-          "product": "burger",
-          "quantity": 15,
-          "unitPrice": 12.99
-        },
-        {
-          "product": "ciasteczko",
-          "quantity": 10,
-          "unitPrice": 3.99
-        }
-      ]
+      "product": "ciasteczko",
+      "quantity": 10,
+      "unitPrice": 3.99
     },
     {
       "id": 6,
       "date": "2022-04-03",
       "client": "Uczelnia zawodowa",
-      "items": [
-        {
-          "product": "ciasto",
-          "quantity": 20,
-          "unitPrice": 9.99
-        },
-        {
-          "product": "ciastko",
-          "quantity": 8,
-          "unitPrice": 5.99
-        }
-      ]
+      "product": "ciastko",
+      "quantity": 8,
+      "unitPrice": 5.99
     },
     {
       "id": 7,
       "date": "2023-04-12",
       "client": "Urząd Miasta ZZ",
-      "items": [
-        {
-          "product": "burger",
-          "quantity": 1,
-          "unitPrice": 12.99
-        }
-      ]
+      "product": "burger",
+      "quantity": 1,
+      "unitPrice": 12.99
     },
     {
       "id": 8,
       "date": "2023-04-12",
       "client": "Urząd Miasta ZZ",
-      "items": [
-        {
-          "product": "burger",
-          "quantity": 1,
-          "unitPrice": 12.99
-        }
-      ]
+      "product": "burger",
+      "quantity": 1,
+      "unitPrice": 12.99
     },
     {
       "id": 9,
       "date": "2023-04-12",
       "client": "Firma YZ",
-      "items": [
-        {
-          "product": "pierogi",
-          "quantity": 12,
-          "unitPrice": 8.99
-        }
-      ]
+      "product": "pierogi",
+      "quantity": 12,
+      "unitPrice": 8.99
     },
     {
       "id": 10,
       "date": "2023-04-12",
       "client": "Firma YZ",
-      "items": [
-        {
-          "product": "pierogi",
-          "quantity": 12,
-          "unitPrice": 8.99
-        }
-      ]
+      "product": "pierogi",
+      "quantity": 12,
+      "unitPrice": 8.99
     },
     {
       "id": 11,
       "date": "2023-04-12",
       "client": "Uczelnia zawodowa",
-      "items": [
-        {
-          "product": "schabowy",
-          "quantity": 100,
-          "unitPrice": 12.99
-        }
-      ]
+      "product": "schabowy",
+      "quantity": 100,
+      "unitPrice": 12.99
     },
     {
       "id": 12,
       "date": "2023-04-12",
       "client": "Uczelnia zawodowa",
-      "items": [
-        {
-          "product": "schabowy",
-          "quantity": 100,
-          "unitPrice": 12.99
-        }
-      ]
+      "product": "schabowy",
+      "quantity": 100,
+      "unitPrice": 12.99
+    },
+    {
+      "id": 13,
+      "date": "2023-04-13",
+      "client": "Firma YZ",
+      "product": "kotlet",
+      "quantity": 12,
+      "unitPrice": 9.99
     }
   ]
 }

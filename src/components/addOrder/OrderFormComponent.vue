@@ -93,13 +93,9 @@ export default {
           id: maxId + 1,
           date: new Date().toISOString().slice(0, 10),
           client: this.selectedCustomer.name,
-          items: [
-            {
-              product: this.selectedProduct.name,
-              quantity: this.quantity,
-              unitPrice: this.selectedProduct.unitPrice,
-            },
-          ],
+          product: this.selectedProduct.name,
+          quantity: this.quantity,
+          unitPrice: this.selectedProduct.unitPrice,
         };
         this.addOrder(order);
       } else {
