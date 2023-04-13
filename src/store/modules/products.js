@@ -20,11 +20,26 @@ const actions = {
     );
     commit("addProduct", response.data);
   },
+  async updateProduct({ commit }, product) {
+    const response = await axios.put(
+      `http://localhost:3000/products/${product.id}`,
+      product
+    );
+    commit("updateProduct", response.data);
+  },
 };
 
 const mutations = {
   setProducts: (state, products) => (state.products = products),
   addProduct: (state, product) => state.products.push(product),
+  async updateProduct({ commit }, product) {
+    console.log("updateProduct", product);
+    const response = await axios.put(
+      `http://localhost:3000/products/${product.id}`,
+      product
+    );
+    commit("updateProduct", response.data);
+  },
 };
 
 export default {

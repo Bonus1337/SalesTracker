@@ -1,21 +1,21 @@
 <template>
   <div>
     <HeaderComponent :headerText="headerText" />
-    <PriceProductTable />
+    <EditableProductTable />
     <AddProductForm />
   </div>
 </template>
 
 <script>
 import HeaderComponent from "@/components/shared/HeaderComponent.vue";
-import PriceProductTable from "@/components/mainScreen/PriceProductTable.vue";
+import EditableProductTable from "@/components/productListView/EditableProductTable.vue";
 import AddProductForm from "@/components/productListView/AddProductForm.vue";
 
 export default {
   name: "ProductListView",
   components: {
     HeaderComponent,
-    PriceProductTable,
+    EditableProductTable,
     AddProductForm,
   },
   data() {
