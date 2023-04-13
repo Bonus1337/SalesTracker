@@ -2,6 +2,7 @@
   <div>
     <HeaderComponent :headerText="headerText" />
     <OrderFormComponentVue />
+    <HeaderComponent :headerText="tableTitle" />
     <OrderEditableTable />
   </div>
 </template>
@@ -19,6 +20,7 @@ export default {
   data() {
     return {
       headerText: "Formularz zamówienia",
+      tableTitle: "Lista zamówień",
     };
   },
 };
