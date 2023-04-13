@@ -1,17 +1,27 @@
 <template>
   <div>
-    <Dropdown
-      :options="clients"
-      v-model="selectedClient"
-      optionLabel="name"
-      placeholder="Wybierz klienta"
-      @change="onClientChange"
-    ></Dropdown>
-    <Calendar
-      v-model="dateRange"
-      selectionMode="range"
-      dateFormat="yy-mm-dd"
-    ></Calendar>
+    <div class="filters">
+      <Dropdown
+        :options="clients"
+        v-model="selectedClient"
+        optionLabel="name"
+        placeholder="Wybierz klienta"
+        @change="onClientChange"
+      ></Dropdown>
+      <Calendar
+        v-model="dateRange"
+        selectionMode="range"
+        dateFormat="yy-mm-dd"
+      ></Calendar>
+      <Dropdown
+        :options="yearOptions"
+        v-model="selectedYear"
+        placeholder="Wybierz rok"
+        @change="onYearChange"
+      ></Dropdown>
+      <Button label="Resetuj filtry" @click="resetFilters"></Button>
+    </div>
+
     <DataTable
       :value="filteredOrders"
       tableStyle="min-width: 50rem"
@@ -30,6 +40,9 @@
         <template #footer> {{ totalPriceComputed.toFixed(2) }} PLN </template>
       </Column>
     </DataTable>
+    <div class="chart-container">
+      <Chart type="pie" :data="chartData" :options="chartOptions"></Chart>
+    </div>
   </div>
 </template>
 <script>
@@ -38,6 +51,8 @@ import Calendar from "primevue/calendar";
 import DataTable from "primevue/datatable";
 import Column from "primevue/column";
 import Dropdown from "primevue/dropdown";
+import Button from "primevue/button";
+import Chart from "primevue/chart";
 
 export default {
   name: "RaportTable",
@@ -46,6 +61,8 @@ export default {
     Column,
     Dropdown,
     Calendar,
+    Button,
+    Chart,
   },
   data() {
     return {
@@ -53,10 +70,60 @@ export default {
       clients: [],
       selectedClient: null,
       dateRange: null,
+      selectedYear: null,
     };
   },
   computed: {
     ...mapGetters(["allOrders", "allClients"]),
+    chartData() {
+      const productSales = this.filteredOrders.reduce((acc, order) => {
+        if (!acc[order.product]) {
+          acc[order.product] = 0;
+        }
+        acc[order.product] += order.quantity * order.unitPrice;
+        return acc;
+      }, {});
+      const labels = Object.keys(productSales);
+      const backgroundColors = labels.map(() => {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b})`;
+      });
+      return {
+        labels,
+        datasets: [
+          {
+            data: Object.values(productSales),
+            backgroundColor: backgroundColors,
+          },
+        ],
+      };
+    },
+    chartOptions() {
+      return {
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                const label = context.label || "";
+                const value = context.parsed || 0;
+                return `${label}: ${value.toFixed(2)} PLN`;
+              },
+            },
+          },
+        },
+      };
+    },
+
+    yearOptions() {
+      const currentYear = new Date().getFullYear();
+      const years = [];
+      for (let year = currentYear - 5; year <= currentYear + 5; year++) {
+        years.push(year);
+      }
+      return years;
+    },
     totalPriceComputed() {
       return this.filteredOrders.reduce((acc, order) => {
         return acc + order.quantity * order.unitPrice;
@@ -87,6 +154,12 @@ export default {
           return orderDate >= startDate && orderDate <= endDate;
         });
       }
+      if (this.selectedYear) {
+        filtered = filtered.filter((order) => {
+          const orderYear = new Date(order.date).getFullYear();
+          return orderYear === this.selectedYear;
+        });
+      }
       return filtered;
     },
   },
@@ -111,6 +184,11 @@ export default {
         this.$refs.dataTable.filter();
       });
     },
+    resetFilters() {
+      this.selectedClient = null;
+      this.dateRange = null;
+      this.selectedYear = null;
+    },
   },
 };
 </script>
@@ -125,5 +203,63 @@ export default {
 
 .table-class tbody tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.filters .p-dropdown {
+  width: 15rem;
+}
+.filters .p-dropdown .p-dropdown-label {
+  color: #333;
+}
+.filters .p-dropdown.p-focus .p-dropdown-label {
+  color: #007ad9;
+}
+
+/* Dodajemy kolory do kalendarza */
+.filters .p-calendar {
+  width: 15rem;
+}
+.filters .p-calendar .p-inputtext {
+  color: #333;
+}
+.filters .p-calendar.p-focus .p-inputtext {
+  color: #007ad9;
+}
+
+/* Dodajemy style do tabeli */
+.table-class {
+  border-collapse: collapse;
+}
+.table-class th,
+.table-class td {
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+}
+.table-class th {
+  background-color: #007ad9;
+  color: white;
+}
+.table-class tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.table-class tr:hover {
+  background-color: #ddd;
+}
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 10rem;
+}
+@media (max-width: 600px) {
+  .chart-container {
+    height: 300px;
+  }
 }
 </style>
