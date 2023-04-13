@@ -1,6 +1,6 @@
 <template>
-  <div class="table-responsive">
-    <table class="table">
+  <div>
+    <table>
       <thead>
         <tr>
           <th>Nazwa</th>
@@ -12,11 +12,10 @@
         <tr v-for="product in allProducts" :key="product.id">
           <td><input type="text" v-model="product.name" /></td>
           <td><input type="number" v-model="product.unitPrice" /></td>
-          <td>
-            <ButtonComponent
-              text="Uaktualnij"
-              @click="updateProduct(product)"
-            ></ButtonComponent>
+          <td class="center">
+            <button class="btn" @click="updateProduct(product)">
+              Uaktualnij
+            </button>
           </td>
         </tr>
       </tbody>
@@ -26,16 +25,13 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import ButtonComponent from "../shared/ButtonComponent.vue";
 
 export default {
   name: "EditableProductTable",
   data() {
     return {};
   },
-  components: {
-    ButtonComponent,
-  },
+
   computed: {
     ...mapGetters(["allProducts"]),
   },
@@ -49,42 +45,55 @@ export default {
 </script>
 
 <style scoped>
-.table {
+table {
   width: 100%;
-  margin-bottom: 1rem;
-  background-color: #fff;
   border-collapse: collapse;
 }
 
-.table th,
-.table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
 }
 
-.table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
+th {
+  background-color: #ddd;
 }
 
-.table tbody + tbody {
-  border-top: 2px solid #dee2e6;
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-.table-responsive {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+/* Styl przycisku */
+.btn {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-@media (max-width: 575.98px) {
-  .table-responsive {
-    overflow-x: auto;
+/* CSS dla widoku responsywnego */
+@media screen and (max-width: 768px) {
+  table {
+    font-size: 12px;
   }
-  .table {
-    width: auto !important;
+
+  th,
+  td {
+    padding: 6px;
+  }
+
+  input {
+    margin: 0;
+    padding: 0;
+    width: 90%;
   }
 }
 </style>

@@ -1,8 +1,9 @@
 <template>
   <div>
-    <HeaderComponent :headerText="headerText" />
-    <EditableProductTable />
+    <HeaderComponent :headerText="addProduct" />
     <AddProductForm />
+    <HeaderComponent :headerText="productList" />
+    <EditableProductTable />
   </div>
 </template>
 
@@ -20,7 +21,8 @@ export default {
   },
   data() {
     return {
-      headerText: "Lista produktów",
+      productList: "Lista produktów",
+      addProduct: "Dodaj produkt",
     };
   },
 };

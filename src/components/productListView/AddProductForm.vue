@@ -1,7 +1,6 @@
 <template>
   <div>
     <form @submit.prevent="addNewProduct">
-      <h3>Dodaj produkt</h3>
       <label for="product-name">Nazwa produktu:</label>
       <input type="text" id="product-name" v-model="productName" />
       <br />

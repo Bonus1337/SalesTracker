@@ -1,5 +1,6 @@
 <template>
   <div>
+    <HeaderComponent :headerText="filters" />
     <div class="filters">
       <Dropdown
         :options="clients"
@@ -40,6 +41,7 @@
         <template #footer> {{ totalPriceComputed.toFixed(2) }} PLN </template>
       </Column>
     </DataTable>
+    <HeaderComponent :headerText="chartName" />
     <div class="chart-container">
       <Chart
         type="pie"
@@ -58,6 +60,7 @@ import Column from "primevue/column";
 import Dropdown from "primevue/dropdown";
 import Button from "primevue/button";
 import Chart from "primevue/chart";
+import HeaderComponent from "@/components/shared/HeaderComponent.vue";
 
 export default {
   name: "RaportView",
@@ -68,6 +71,7 @@ export default {
     Calendar,
     Button,
     Chart,
+    HeaderComponent,
   },
   data() {
     return {
@@ -76,6 +80,8 @@ export default {
       selectedClient: null,
       dateRange: null,
       selectedYear: null,
+      filters: "Filtry",
+      chartName: "Wykres",
     };
   },
   computed: {
