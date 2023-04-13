@@ -193,6 +193,14 @@
       "product": "kotlet",
       "quantity": 12,
       "unitPrice": 9.99
+    },
+    {
+      "id": 14,
+      "date": "2023-04-13",
+      "client": "Urząd Miasta ZZ",
+      "product": "kotlet",
+      "quantity": 12,
+      "unitPrice": 9.99
     }
   ]
 }
