@@ -55,7 +55,6 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   background-color: #333333;
   max-height: 70px;
   position: fixed;
@@ -79,6 +78,8 @@ export default {
 .navbar-menu .p-button-text {
   color: #ffffff;
 }
+
+/* Styl dla widoku mobilnego */
 
 .navbar-hamburger {
   display: none;
