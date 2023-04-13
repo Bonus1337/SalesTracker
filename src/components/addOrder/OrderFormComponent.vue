@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <div class="card p-fluid">
       <h5>Formularz zamówienia</h5>
       <div class="p-field p-grid">
@@ -40,6 +40,12 @@
       </div>
       <ButtonComponent text="Dodaj zamówienie" @click="createOrder" />
     </div>
+    <InlineMessage v-if="orderSuccess" severity="success"
+      >Zamówienie zostało dodane pomyślnie!</InlineMessage
+    >
+    <InlineMessage v-if="error" severity="error"
+      >Wystąpił problem z zamówieniem</InlineMessage
+    >
   </div>
 </template>
 
@@ -48,6 +54,7 @@ import { mapGetters, mapActions } from "vuex";
 import Dropdown from "primevue/dropdown";
 import InputNumber from "primevue/inputnumber";
 import ButtonComponent from "../shared/ButtonComponent.vue";
+import InlineMessage from "primevue/inlinemessage";
 
 export default {
   name: "OrderFormComponent",
@@ -58,12 +65,15 @@ export default {
       quantity: 1,
       products: [],
       clients: [],
+      orderSuccess: false,
+      error: false,
     };
   },
   components: {
     Dropdown,
     InputNumber,
     ButtonComponent,
+    InlineMessage,
   },
   computed: {
     ...mapGetters(["allProducts", "allClients", "allOrders"]),
@@ -97,9 +107,16 @@ export default {
           quantity: this.quantity,
           unitPrice: this.selectedProduct.unitPrice,
         };
+        this.orderSuccess = true;
+        setInterval(() => {
+          this.orderSuccess = false;
+        }, 2000);
         this.addOrder(order);
       } else {
-        alert("Proszę wybrać klienta, produkt i ilość");
+        this.error = true;
+        setInterval(() => {
+          this.error = false;
+        }, 2000);
       }
     },
   },

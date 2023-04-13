@@ -60,7 +60,7 @@ import Button from "primevue/button";
 import Chart from "primevue/chart";
 
 export default {
-  name: "RaportTable",
+  name: "RaportView",
   components: {
     DataTable,
     Column,
