@@ -33,21 +33,4 @@ body {
   margin: 5rem auto;
   width: 80%;
 }
-.table h2 {
-  text-align: center;
-  color: #333;
-}
-.p-datatable {
-  border: none;
-}
-.p-datatable-thead > tr > th {
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
-  background-color: #eee;
-}
-.p-datatable-tbody > tr > td {
-  padding: 1rem;
-  border-bottom: 1px solid #ccc;
-  background-color: #fff;
-}
 </style>

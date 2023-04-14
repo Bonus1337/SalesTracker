@@ -32,13 +32,11 @@ const actions = {
 const mutations = {
   setProducts: (state, products) => (state.products = products),
   addProduct: (state, product) => state.products.push(product),
-  async updateProduct({ commit }, product) {
-    console.log("updateProduct", product);
-    const response = await axios.put(
-      `http://localhost:3000/products/${product.id}`,
-      product
-    );
-    commit("updateProduct", response.data);
+  updateProduct: (state, product) => {
+    const index = state.products.findIndex((p) => p.id === product.id);
+    if (index !== -1) {
+      state.products.splice(index, 1, product);
+    }
   },
 };
 
