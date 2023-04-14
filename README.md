@@ -1,48 +1,58 @@
 # SalesTracker
 
-SalesTracker jest aplikacją raportującą sprzedaż produktów w formie tabelarycznej dla klientów za wybrany okres z możliwością filtrowania po atrybutach zamówienia. Pozwala dodatkowo na zarządzania listą produtków i zamówień Aplikacja została stworzona jako zadanie testowe.
+SalesTracker is a web application for reporting and managing sales of products for customers. It allows you to:
 
-## Technologie i biblioteki
+- generate a sales report for a selected month and year or based on a specified date range
+- filter the sales report by customers
+- summarize the sales (total quantity / total amount) for the currently set filters
+- display a pie chart showing the share of sales of individual products in relation to the total - sales for the selected reporting period
+- manage the list of products (name and unit price)
+- add new products
+- add and edit orders from customers
 
-Aplikacja została napisana w Vue 3 z wykorzystaniem następujących technologii i bibliotek:
+The application was created as a test task.
 
-- json-server - do symulowania bazy danych i API
-- primeVue - do tworzenia interfejsu użytkownika
-- Vuex - do zarządzania danymi
-- vue-router - do zarządzania nawigacją
-- axios - do komunikacji z API
+## Technologies and libraries
 
-## Uruchomienie aplikacji
+The application was written in Vue 3, a progressive framework for creating user interfaces with reactive components. The application uses the following technologies and libraries:
 
-Aby uruchomić aplikację lokalnie, należy wykonać następujące kroki:
+- primeVue - a rich set of UI components for Vue 3
+- Vuex - the official library for managing the state of Vue applications
+- vue-router - the official library for managing navigation and paths in Vue applications
+- axios - a popular library for making HTTP requests from the browser or Node.js
+- json-server - a tool for simulating a database and REST API from a JSON file
 
-1. Sklonować repozytorium z GitHub: `git clone https://github.com/Bonus1337/SalesTracker.git`
-2. Przejdź do folderu z projektem: `cd SalesTracker`
-3. Zainstaluj zależności: `npm install`
-4. zainstaluj json-server: npm install -g json-server
-5. Uruchom json-server: `json-server --watch data.json`
-6. Uruchom aplikację: `npm run serve`
-7. Otwórz przeglądarkę i wpisz adres: `http://localhost:8080`
+## Installation and running
 
-## Testowanie aplikacji
+To run the application locally, follow these steps:
 
-Aby przetestować aplikację, można używać jej normalnie i sprawdzać jej funkcjonalność. Aplikacja pozwala na:
+1. Clone the GitHub repository: `git clone https://github.com/Bonus1337/SalesTracker.git`
+2. Go to the project folder: `cd SalesTracker`
+3. Install dependencies: `npm install`
+4. Install json-server: npm install -g json-server
+5. Run json-server: `json-server --watch data.json`. Json-server will run on port 3000 and provide an API at `http://localhost:3000`.
+6. Run the application: `npm run serve`. The application will run on port 8080 and be available at `http://localhost:8080`.
+7. Open your browser and enter the address: `http://localhost:8080`.
+8. To stop the application, press Ctrl+C in the terminal where you ran it.
+9. To stop json-server, press Ctrl+C in the terminal where you ran it.
 
-- generowanie raportu sprzedaży dla wybranego miesiąca i roku lub na bazie określonego przedziału dat
-- filtrowanie raportu sprzedaży po klientach
-- podsumowanie sprzedaży (łączna ilość / łączna kwota) dla aktualnie ustawionych filtrów
-- prezentowanie wykresu kołowego prezentującego udział sprzedaży poszczególnych produktów względem całościowej sprzedaży za wybrany okres raportowania
-- zarządzanie listą produktów (nazwa i cena jednostkowa)
-- dodawanie nowych produktów
-- dodawanie i edytowanie zamówień od klienta
+## Bugs and improvements
 
-## Znane błędy lub ograniczenia
+The application has the following bugs or limitations:
 
-Aplikacja ma następujące ograniczenia:
+- It does not have an API in Node.js or a database made using MongoDB, everything works on json-server. This was a requirement of the test task to focus on the frontend part of the application.
+- It does not have unit or integration tests. This was caused by lack of time and experience in writing tests for Vue 3.
 
-- nie posiada API w Node.js ani bazy danych zrobionej przy pomocy MongoDB, tylko wszystko działa na json-serverze
-- nie ma testów jednostkowych ani integracyjnych
+I plan to solve these problems and improve the application in the future. My plans for the future are:
 
-## Kontakt
+- Add an API in Node.js and a MongoDB database to increase reliability and scalability of the application.
 
-W razie pytań lub problemów związanych z aplikacją, można się ze mną skontaktować przez Discorda: Bonus#2048
+- Add unit and integration tests to ensure quality and security of code.
+
+- Add other features or improvements such as pagination, sorting, searching, data validation, user authorization etc.
+
+## License, authors and sources
+
+The project is licensed under MIT license. This means that you can freely use, copy, modify and distribute it provided that you keep information about authors and license
+
+The author of this project is Bonus1337. If you want to contact me or thank me for my project, you can write to me at discord `Bonus#2048`

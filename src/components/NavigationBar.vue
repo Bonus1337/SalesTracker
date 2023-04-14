@@ -42,7 +42,7 @@ export default {
       links: [
         { path: "/sales-report", label: "Raport sprzedaży" },
         { path: "/product-list", label: "Zarządzanie listą produktów" },
-        { path: "/add-order", label: "Dodawanie zamówień" },
+        { path: "/add-order", label: "Zarządzanie zamówieniami" },
       ],
       mobileMenuActive: false,
     };

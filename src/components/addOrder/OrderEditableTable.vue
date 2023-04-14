@@ -174,6 +174,7 @@ button:hover {
   padding: 20px;
   margin: 20px auto;
   max-width: 600px;
+  margin-bottom: 10rem;
 }
 .edit-form h2 {
   font-size: 24px;
