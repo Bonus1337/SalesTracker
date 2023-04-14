@@ -1,18 +1,36 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h2>Reklama</h2>
+    <CarouselComponent />
+
+    <div class="table">
+      <h2>Tabela produktów</h2>
+      <PriceProductTable />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import CarouselComponent from "@/components/mainScreen/CarouselComponent.vue";
+import PriceProductTable from "@/components/mainScreen/PriceProductTable.vue";
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  name: "HomeView",
+  components: { CarouselComponent, PriceProductTable },
+};
 </script>
+
+<style scoped>
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+.carousel {
+  margin: 2rem auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.table {
+  margin: 5rem auto;
+  width: 80%;
+}
+</style>
