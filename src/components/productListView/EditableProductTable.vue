@@ -4,14 +4,16 @@
       <thead>
         <tr>
           <th>Nazwa</th>
-          <th>Cena</th>
-          <th></th>
+          <th>Cena jednostkowa</th>
+          <th>Akcje</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="product in allProducts" :key="product.id">
           <td><input type="text" v-model="product.name" /></td>
-          <td><input type="number" v-model="product.unitPrice" /></td>
+          <td>
+            <input type="number" v-model="product.unitPrice" step="any" />
+          </td>
           <td class="center">
             <button class="btn" @click="updateProduct(product)">
               Uaktualnij

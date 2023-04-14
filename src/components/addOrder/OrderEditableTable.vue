@@ -17,7 +17,7 @@
           <td>{{ order.client }}</td>
           <td>{{ order.product }}</td>
           <td>{{ order.quantity }}</td>
-          <td>{{ order.unitPrice }}</td>
+          <td>{{ order.unitPrice }} PLN</td>
           <td>
             <button @click="editOrder(order)" class="edit-button">
               Edytuj

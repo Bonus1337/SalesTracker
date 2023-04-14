@@ -5,22 +5,39 @@
       <input type="text" id="product-name" v-model="productName" />
       <br />
       <label for="unit-price">Cena jednostkowa:</label>
-      <input type="text" id="unit-price" v-model.number="unitPrice" />
+      <input
+        type="number"
+        id="unit-price"
+        v-model.number="unitPrice"
+        step="any"
+      />
       <br />
       <button type="submit">Dodaj</button>
+      <InlineMessage v-if="orderSuccess" severity="success"
+        >Produkt został dodany pomyślnie!</InlineMessage
+      >
+      <InlineMessage v-if="error" severity="error"
+        >Wystąpił problem z dodaniem</InlineMessage
+      >
     </form>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import InlineMessage from "primevue/inlinemessage";
 
 export default {
   name: "AddProductForm",
+  components: {
+    InlineMessage,
+  },
   data() {
     return {
       productName: "",
       unitPrice: "",
+      orderSuccess: false,
+      error: false,
     };
   },
   computed: {
@@ -43,9 +60,16 @@ export default {
           name: this.productName,
           unitPrice: parseFloat(this.unitPrice),
         };
+        this.orderSuccess = true;
+        setTimeout(() => {
+          this.orderSuccess = false;
+        }, 1000);
         this.addProduct(product);
       } else {
-        alert("Proszę podać nazwę produktu i cenę jednostkową");
+        this.error = true;
+        setTimeout(() => {
+          this.error = false;
+        }, 1000);
       }
     },
   },
