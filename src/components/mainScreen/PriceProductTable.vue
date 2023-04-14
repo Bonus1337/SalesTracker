@@ -1,10 +1,15 @@
 <template>
   <div>
-    <DataTable :value="allProducts" tableStyle="min-width: 20rem">
-      <Column field="name" sortable header="Nazwa produktu"></Column>
+    <DataTable :value="filteredOrders" tableStyle="min-width: 20rem">
+      <Column field="product" sortable header="Nazwa produktu"></Column>
       <Column field="unitPrice" sortable header="Cena">
         <template #body="slotProps">
           <span class="unit-price">{{ slotProps.data.unitPrice }} PLN</span>
+        </template>
+      </Column>
+      <Column field="quantity" header="Ilość sprzedanych">
+        <template #body="slotProps">
+          {{ sumQuantity(slotProps.data.product) }}
         </template>
       </Column>
     </DataTable>
@@ -23,13 +28,27 @@ export default {
     Column,
   },
   computed: {
-    ...mapGetters(["allProducts"]),
+    ...mapGetters(["allOrders"]),
+    filteredOrders() {
+      const uniqueProducts = this.allOrders.reduce((acc, order) => {
+        if (!acc.some((o) => o.product === order.product)) {
+          acc.push(order);
+        }
+        return acc;
+      }, []);
+      return uniqueProducts;
+    },
   },
   created() {
-    this.fetchProducts();
+    this.fetchOrders();
   },
   methods: {
-    ...mapActions(["fetchProducts"]),
+    ...mapActions(["fetchOrders"]),
+    sumQuantity(product) {
+      return this.allOrders
+        .filter((order) => order.product === product)
+        .reduce((acc, order) => acc + order.quantity, 0);
+    },
   },
 };
 </script>

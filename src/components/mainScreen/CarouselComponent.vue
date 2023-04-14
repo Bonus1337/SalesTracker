@@ -16,15 +16,15 @@
 </template>
 
 <script>
-import ads from "../../assets/ads.jpeg";
 import food1 from "../../assets/food1.jpeg";
-import food2 from "../../assets/food2.jpeg";
-import food3 from "../../assets/food3.jpeg";
+import food2 from "../../assets/food4.jpeg";
+import food3 from "../../assets/food2.jpeg";
+import food4 from "../../assets/food3.jpeg";
 export default {
   name: "CarouselComponent",
   data() {
     return {
-      images: [ads, food1, food2, food3],
+      images: [food1, food2, food3, food4],
       currentImage: 0,
     };
   },
@@ -44,17 +44,25 @@ export default {
 <style scoped>
 .carousel {
   position: relative;
+  width: 98vw;
+  height: auto;
+  margin: 0 auto;
 }
+
 .carousel-inner {
+  height: auto;
   display: flex;
   overflow: hidden;
 }
+
 .carousel-item {
   flex: 0 0 100%;
 }
+
 .carousel-item img {
   width: 100%;
-  height: auto;
-  max-width: 600px;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
 }
 </style>
